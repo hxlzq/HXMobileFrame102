@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>欢迎</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            if (!!localStorage.hx_mobile_frame_current_app_uri)
+            {
+                var strCurrentAppUrl = localStorage.hx_mobile_frame_current_app_uri;
+                var strLoginUserCode = localStorage.hx_mobile_frame_current_app_login_user;
+                if (strLoginUserCode == null) strLoginUserCode = "";
+                var strLoginPwd = localStorage.hx_mobile_frame_current_app_login_pwd;
+                if (strLoginPwd == null) strLoginPwd = "";
+                window.location.href = strCurrentAppUrl + "?login_user=" + encodeURIComponent(strLoginUserCode) + "&login_pwd=" + _md5(strLoginPwd);
+            }
+            else
+            {
+                window.location.href = "setting.html";
+            }
+        </script>
+    </body>
+</html>
