@@ -52,11 +52,20 @@
     
     <feature name="http://api.phonegap.com/1.0/geolocation" />
     <feature name="http://api.phonegap.com/1.0/device" />
-    <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.CameraLauncher" />
-      </feature>
+  <feature name="http://api.phonegap.com/1.0/camera" />
       <feature name="Capture">
         <param name="android-package" value="org.apache.cordova.Capture" />
       </feature>
-
+    <feature name="Contacts">
+      <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+    </feature>
+  <feature name="Accelerometer">
+    <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
+  </feature>
+  <feature name="Compass">
+    <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
+  </feature>
+  <feature name="NetworkStatus">
+    <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+  </feature>
 </widget>
