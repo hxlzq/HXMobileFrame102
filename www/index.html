@@ -6,8 +6,10 @@
         <title>测试</title>
     </head>
     <body>
-        <input type="button" id="btnTest" style="position:absolute;left:0px;top:50px; margin:40px 0px;height:40px" value="显示本网页地址" onclick="alert(document.location.href)" />
-        <input type="button" id="btnTest2" style="position:absolute;left:0px;top:300px; margin:40px 0px;height:40px" value="转到服务器网页" onclick="onGoToServerPage()" />
+        <input type="button" id="btnTest" style="position:absolute;left:100px;top:50px;height:40px" value="显示本网页地址" onclick="alert(document.location.href)" />
+        <input type="button" id="btnTest2" style="position:absolute;left:100px;top:200px; height:40px" value="转到服务器网页" onclick="onGoToServerPage()" />
+        <input type="button" id="btnTest3" style="position:absolute;left:100px;top:400px; height:40px" value="获取图片" onclick="onGetPicture()" />
+        <img id="myImage" style="position:absolute;left:20px;top:600px;width:400px;height:400px" />
        <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript">
             app.initialize();
@@ -20,6 +22,22 @@
             function onGoToServerPage()
             {
                 window.open("http://trusthx.vicp.net:318/test.htm", "_self");
+            }
+
+            function onGetPicture()
+            {
+                navigator.camera.getPicture(OnCameraSuccess, OnCameraError, {destinationType:Camera.DestinationType.DATA_URL});
+            }
+
+            function OnCameraSuccess(imageData)
+            {
+                var image = document.getElementById("myImage");
+                image.src = "data:image/jpeg;base64," + imageData;
+            }
+
+            function OnCameraError(message)
+            {
+                alert("Failed because:" + message);
             }
         </script>
      </body>
