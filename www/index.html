@@ -26,7 +26,7 @@
 
             function onGetPicture()
             {
-                navigator.camera.getPicture(OnCameraSuccess, OnCameraError, {destinationType:Camera.DestinationType.DATA_URL});
+                navigator.camera.getPicture(OnCameraSuccess, OnCameraError, {quality:50, destinationType:Camera.DestinationType.DATA_URL});
             }
 
             function OnCameraSuccess(imageData)
